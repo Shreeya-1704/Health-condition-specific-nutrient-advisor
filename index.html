@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="stylesheet" href="../static/style.css"> 
+<title>Condition-Specific Recipe Advisor</title> 
+</head> 
+<body> 
+                                                                      
+    <div class="container"> 
+        <h1>Condition-Specific Recipe Advisor</h1> 
+        <form action="/get_recipe" method="POST"> 
+            <label for="condition">Select Your Health Condition:</label> 
+            <select name="condition" id="condition"> 
+                <option value="Diabetes">Diabetes</option> 
+                <option value="Hypertension">Hypertension</option> 
+                <option value="Obesity">Obesity</option> 
+                <option value="Anemia">Anemia</option> 
+                <option value="Low Immunity">Low Immunity</option> 
+                <option value="PCOS">PCOS</option> 
+                <option value="Arthritis">Arthritis</option> 
+                <option value="Heart Health">Heart Health</option> 
+                <option value="Fatigue">Fatigue</option> 
+            </select> 
+            <button type="submit">Get Recipe</button> 
+        </form> 
+    </div> 
+</body> 
+</html> 
+Style.css: 
+body { 
+    font-family: Arial, sans-serif; 
+Health condition specific nutrient advisor                                                                       
+    margin: 0; 
+    padding: 0; 
+    background-image: url('https://media.istockphoto.com/id/1313187927/vector/cooking
+food-and-vegetables-background.jpg?s=612x612&w=0&k=20&c=qC9BPv5TLtYEh
+_myYacOZSugAEUx4S_uq5s6H33-ss='); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    color: #333; 
+} 
+ 
+/* Ensure dropdown and other elements adjust well with the background */ 
+.container { 
+    width: 80%; 
+    margin: auto; 
+    background: rgba(255, 255, 255, 0.8); /* Light overlay for better readability */ 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+} 
+ 
+h1, h2, h3 { 
+    color: #444; 
+Health condition specific nutrient advisor                                                                       
+Coding} 
+ 
+select, textarea, input[type="text"], input[type="submit"] { 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    padding: 10px; 
+    font-size: 16px; 
+    width: 100%; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+} 
+button, input[type="submit"] { 
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+} 
+button:hover, input[type="submit"]:hover { 
+    background-color: #45a049; 
+}

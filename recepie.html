@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Recipes</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script> 
+    <style> 
+        body { 
+            background-image: 
+url('https://media.istockphoto.com/id/1313187927/vector/cooking-food-and-vegetables
+background.jpg?s=612x612&w=0&k=20&c=qC9BPv5TLtYEh
+_myYacOZSugAEUx4S_uq5s6H33-ss='); /* Replace with your image URL */ 
+            background-size: cover; 
+            background-position: center; 
+            font-family: Arial, sans-serif; 
+        } 
+        .container { 
+            background: rgba(255, 255, 255, 0.9); 
+            margin: 20px auto; 
+            padding: 20px; 
+            max-width: 800px; 
+24 
+ 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        } h1 { 
+            color: #333; 
+        }recipe-card { 
+            margin-bottom: 20px; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            background: #f9f9f9; 
+        } 
+.recipe-card h2 { 
+            margin-top: 0; 
+            color: #444; 
+        }#feedback-section { 
+            margin-top: 20px; 
+         
+        textarea { 
+            width: 100%; 
+            padding: 10px; 
+            border-radius: 5px; 
+            border: 1px solid #ccc; 
+        } 
+
+ 
+        button { 
+            background-color: #007BFF; 
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+        } 
+        button:hover { 
+            background-color: #0056b3; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h1>{{ condition }} Recipes</h1> 
+        {% for recipe in recipes %} 
+        <div class="recipe-card"> 
+            <h2>{{ recipe['name'] }}</h2> 
+            <p><strong>Description:</strong> {{ recipe['description'] }}</p> 
+            <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p> 
+            <p><strong>Instructions:</strong> {{ recipe['instructions'] }}</p> 
+            <p><strong>Nutrition:</strong> {{ recipe['nutrition'] }}</p> 
+                                                                       
+ 
+ 
+ 
+        </div> 
+        {% endfor % 
+        <div id="feedback-section"> 
+            <h3>Leave Feedback</h3> 
+            <form method="post" action="/submit_feedback"> 
+                <textarea name="feedback" rows="5" placeholder="Share your thoughts about these 
+recipes..."></textarea> 
+                <br> 
+                <button type="submit">Submit Feedback</button> 
+            </form> 
+        </div 
+        <button id="speak-btn">Read Recipes Aloud</button> 
+    </div 
+    <script> 
+        // Voice-Based Interaction 
+        const speakButton = document.getElementById('speak-btn'); 
+        const recipes = JSON.parse('{{ recipes | tojson | safe }}') 
+        speakButton.addEventListener('click', () => { 
+            let text = `Here are the recipes for {{ condition }}: `; 
+            recipes.forEach(recipe => {       
+          text += `Recipe name: ${recipe.name}. Description: ${recipe.description}.  
+                         Ingredients: ${recipe.ingredients}. Instructions: ${recipe.instructions}.  
+                         Nutrition count: ${recipe.nutrition}. `; 
+                                                                       
+ 
+ 
+            }); 
+            responsiveVoice.speak(text, "US English Female"); 
+        }); 
+    </script> 
+</body></html> 
